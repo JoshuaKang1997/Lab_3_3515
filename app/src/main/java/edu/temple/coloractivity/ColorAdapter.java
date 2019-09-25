@@ -19,7 +19,6 @@ public class ColorAdapter extends BaseAdapter {
         this.colors = colors;
     }
 
-
     @Override
     public int getCount() {
         return colors.length;
@@ -37,19 +36,14 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        
         TextView textView = new TextView((context));
-
         String colorValue = colors[i];
-
         textView.setText(colorValue);
-
         textView.setBackgroundColor(Color.parseColor(colorValue));
-
         textView.setTextSize(20);
-
-        textView.setPadding(5,5,0,5);
+        //textView.setPadding(5, 5, 0, 5);
 
         return textView;
     }
-
 }

@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,25 +19,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Object Declaration
+        final View window = this.getWindow().getDecorView();
         Spinner spinner = findViewById(R.id.spinner);
-
-        String[] colors = {"Red", "Green", "Blue", "Magenta", "Cyan", "Black", "Yellow", "Purple",
-                "Lime", "White"};
+        //Color Array
+        String[] colors = {"White", "Green", "Blue", "Magenta", "Cyan", "Black", "Yellow", "Purple",
+                "Lime", "Red"};
 
         ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
         spinner.setAdapter(adapter);
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                window.setBackgroundColor(Color.parseColor(adapterView.getItemAtPosition(position).toString()));
                 adapterView.setBackgroundColor(Color.parseColor("White"));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
-
         });
     }
 }
