@@ -11,20 +11,26 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //Object Declaration
+
+        //This is the object declared as a view to make it easier to change colors
         final View window = this.getWindow().getDecorView();
+        //This is the Dropdown Spinner
         Spinner spinner = findViewById(R.id.spinner);
+
         //Color Array
-        String[] colors = {"White", "Green", "Blue", "Magenta", "Cyan", "Black", "Yellow", "Purple",
-                "Lime", "Red"};
+        String[] colors = {"White", "Blue", "Magenta", "Cyan", "Black", "Yellow", "Purple",
+                "Lime", "Red", "Green"};
 
         ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
         spinner.setAdapter(adapter);
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 window.setBackgroundColor(Color.parseColor(adapterView.getItemAtPosition(position).toString()));
-                adapterView.setBackgroundColor(Color.parseColor("White"));
+                view.setBackgroundColor(Color.parseColor("White"));
             }
 
             @Override
