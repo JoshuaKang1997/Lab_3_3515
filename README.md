@@ -12,4 +12,4 @@
 
 ![bg](screenshots/bg.PNG)
 
-![bg2](screenthos/bg2.PNG
+![bg2](screenthos/bg2.PNG)
